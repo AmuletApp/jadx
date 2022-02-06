@@ -10,6 +10,7 @@ println("jadx version: ${jadxVersion}")
 allprojects {
 	apply plugin: 'java'
 	apply plugin: 'checkstyle'
+	apply plugin: 'maven-publish'
 
 	version = jadxVersion
 
@@ -50,6 +51,14 @@ allprojects {
 		mavenLocal()
 		mavenCentral()
 		google()
+	}
+
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				from components.java
+			}
+		}
 	}
 }
 
