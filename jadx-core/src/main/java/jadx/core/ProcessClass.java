@@ -34,17 +34,17 @@ public final class ProcessClass {
 				if (cls.contains(AFlag.CLASS_DEEP_RELOAD)) {
 					cls.remove(AFlag.CLASS_DEEP_RELOAD);
 					cls.deepUnload();
-					cls.root().runPreDecompileStageForClass(cls);
+					cls.add(AFlag.CLASS_UNLOADED);
 				}
 				if (cls.contains(AFlag.CLASS_UNLOADED)) {
-					cls.remove(AFlag.CLASS_UNLOADED);
 					cls.root().runPreDecompileStageForClass(cls);
+					cls.remove(AFlag.CLASS_UNLOADED);
+				}
+				if (cls.getState() == GENERATED_AND_UNLOADED) {
+					// force loading code again
+					cls.setState(NOT_LOADED);
 				}
 				if (codegen) {
-					if (cls.getState() == GENERATED_AND_UNLOADED) {
-						// allow to run code generation again
-						cls.setState(NOT_LOADED);
-					}
 					cls.setLoadStage(LoadStage.CODEGEN_STAGE);
 					if (cls.contains(AFlag.RELOAD_AT_CODEGEN_STAGE)) {
 						cls.remove(AFlag.RELOAD_AT_CODEGEN_STAGE);

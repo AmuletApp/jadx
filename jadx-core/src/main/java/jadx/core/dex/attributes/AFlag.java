@@ -35,7 +35,6 @@ public enum AFlag {
 	SKIP_ARG, // skip argument in invoke call
 	NO_SKIP_ARGS,
 	ANONYMOUS_CONSTRUCTOR,
-	ANONYMOUS_CLASS,
 
 	THIS,
 	SUPER,
@@ -77,6 +76,7 @@ public enum AFlag {
 	INCONSISTENT_CODE, // warning about incorrect decompilation
 
 	REQUEST_IF_REGION_OPTIMIZE, // run if region visitor again
+	REQUEST_CODE_SHRINK,
 	RERUN_SSA_TRANSFORM,
 
 	METHOD_CANDIDATE_FOR_INLINE,
