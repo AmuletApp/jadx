@@ -52,6 +52,15 @@ publishing {
 			}
 		}
 	}
+	repositories {
+		maven {
+			url = uri('https://redditvanced.ddns.net/maven/releases')
+			credentials {
+				username = System.getenv("MAVEN_USERNAME")
+				password = System.getenv("MAVEN_PASSWORD")
+			}
+		}
+	}
 }
 
 javadoc {
