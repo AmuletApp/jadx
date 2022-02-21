@@ -30,6 +30,8 @@ jobs:
         env:
           TERM: dumb
           TEST_INPUT_PLUGIN: dx
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
         with:
           arguments: clean build dist copyExe --warning-mode=all
 
