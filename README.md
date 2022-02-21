@@ -26,6 +26,8 @@ Command line and GUI tools for producing Java source code from Android Dex and A
 - full text search
 - smali debugger, check [wiki page](https://github.com/skylot/jadx/wiki/Smali-debugger) for setup and usage
 
+Jadx-gui key bindings can be found [here](https://github.com/skylot/jadx/wiki/JADX-GUI-Key-bindings)
+
 See these features in action here: [jadx-gui features overview](https://github.com/skylot/jadx/wiki/jadx-gui-features-overview)
 
 <img src="https://user-images.githubusercontent.com/118523/142730720-839f017e-38db-423e-b53f-39f5f0a0316f.png" width="700"/>
@@ -94,7 +96,12 @@ options:
   --deobf-min                         - min length of name, renamed if shorter, default: 3
   --deobf-max                         - max length of name, renamed if longer, default: 64
   --deobf-cfg-file                    - deobfuscation map file, default: same dir and name as input file with '.jobf' extension
-  --deobf-rewrite-cfg                 - force to ignore and overwrite deobfuscation map file
+  --deobf-cfg-file-mode               - set mode for handle deobfuscation map file:
+                                         'read' - read if found, don't save (default)
+                                         'read-or-save' - read if found, save otherwise (don't overwrite)
+                                         'overwrite' - don't read, always save
+                                         'ignore' - don't read and don't save
+  --deobf-rewrite-cfg                 - set '--deobf-cfg-file-mode' to 'overwrite' (deprecated)
   --deobf-use-sourcename              - use source file name as class name alias
   --deobf-parse-kotlin-metadata       - parse kotlin metadata to class and package names
   --use-kotlin-methods-for-var-names  - use kotlin intrinsic methods to rename variables, values: disable, apply, apply-and-hide, default: apply
